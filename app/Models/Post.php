@@ -98,24 +98,39 @@ class Post extends Model
         $postData2 = DB::table('posts')->where('post_status', 'publish')
             ->whereNotIn('id', $postData->pluck('id')->toArray())
             ->limit(3)->offset(0)->orderBy('id', 'DESC')->get();
-
+        //\DB::enableQueryLog();
         $postData3 = DB::table('posts')->where('post_status', 'publish')
+            ->whereNotIn('id', $postData->pluck('id')->toArray())
             ->whereNotIn('id', $postData2->pluck('id')->toArray())
             ->limit(3)->offset(0)->orderBy('id', 'DESC')->get();
-
+            //dd(\DB::getQueryLog());
         $postData4 = DB::table('posts')->where('post_status', 'publish')
+             ->whereNotIn('id', $postData->pluck('id')->toArray())
+            ->whereNotIn('id', $postData2->pluck('id')->toArray())
             ->whereNotIn('id', $postData3->pluck('id')->toArray())
             ->limit(1)->offset(0)->orderBy('id', 'DESC')->get();
 
         $postData5 = DB::table('posts')->where('post_status', 'publish')
+            ->whereNotIn('id', $postData->pluck('id')->toArray())
+            ->whereNotIn('id', $postData2->pluck('id')->toArray())
+            ->whereNotIn('id', $postData3->pluck('id')->toArray())
             ->whereNotIn('id', $postData4->pluck('id')->toArray())
             ->limit(2)->offset(0)->orderBy('id', 'DESC')->get();
 
         $postData6 = DB::table('posts')->where('post_status', 'publish')
+            ->whereNotIn('id', $postData->pluck('id')->toArray())
+            ->whereNotIn('id', $postData2->pluck('id')->toArray())
+            ->whereNotIn('id', $postData3->pluck('id')->toArray())
+            ->whereNotIn('id', $postData4->pluck('id')->toArray())
             ->whereNotIn('id', $postData5->pluck('id')->toArray())
             ->limit(2)->offset(0)->orderBy('id', 'DESC')->get();   
 
         $postData7 = DB::table('posts')->where('post_status', 'publish')
+            ->whereNotIn('id', $postData->pluck('id')->toArray())
+            ->whereNotIn('id', $postData2->pluck('id')->toArray())
+            ->whereNotIn('id', $postData3->pluck('id')->toArray())
+            ->whereNotIn('id', $postData4->pluck('id')->toArray())
+            ->whereNotIn('id', $postData5->pluck('id')->toArray())
             ->whereNotIn('id', $postData6->pluck('id')->toArray())
             ->limit(7)->offset(0)->orderBy('id', 'DESC')->get();       
 
